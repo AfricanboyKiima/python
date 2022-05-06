@@ -1,11 +1,11 @@
 """
-special attributes in python are basically personnalised actions that are executed upon objects
+special methods in python are basically personnalised actions that are executed upon objects
 these special methods are used to control the way objects create themselves as well as access to the attributes of an object
-with the use of the __ini__ and __setattr__ special methods respectively,these special methods are known to python
+with the use of the __init__ and __setattr__ special methods respectively,these special methods are known to python
  and knows what to do when it discoveres that the special methods have been applied.
 """
-#python is an object related programmin languange that enables us to modelise as well as represent data that may tend to be
-#more complex than strings and lists as well as dictionnary data types,this whole principle of OOPS gives us more
+#python is an object oriented programming languange that enables us to model as well as represent data that may tend to be
+#more complex than strings and lists as well as dictionnary data types,this whole principle of OOP gives us more
 #potential to manipulate data flexibly.
 
 #PROPERTIES ARE THE MOST TRANSPARENT WAY OF MANIPULATING ATTRIBUTES OF AN OBJECT and give us the ability to use the principles
@@ -22,12 +22,13 @@ class Person:
         or group of attributes is put in the public class,we can have direct access to it,but when a group of attributes or an attr
         ibute is in the private class,then we can not but have to use accessors and mutators to have access and also modify the
         attributes respectively,but python has no such principles since everything in python is public but to respect the priciples
-        of encapsulation,properties come in to help us deal with such
+        of encapsulation,properties come in to help us deal with such which are the most transparent way of manipulating attributes of an object
         """
     def _get_residence(self):
         return self._residence
     def _set_residence(self,new_value):
         self._residence = new_value
     residence = property(_get_residence,_set_residence)
+    #python says that every method and atttibute that begins with an underscore won't be accessd from outside of the class
     
     
