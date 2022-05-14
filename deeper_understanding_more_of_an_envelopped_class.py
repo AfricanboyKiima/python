@@ -26,3 +26,18 @@ it works in such a way
         return self._dictionnary[index]
     def __setitem__(self,index,val):
         self._dictionnary[index] = val
+    def __repr__(self):
+        return "the object created is composed of the attribute {}".format(self._dictionnary)
+    def __str__(self):
+        return "object composed of _dictionnary as attribute"
+    def __getattr__(self,att):
+        """
+this special method is also one of the most important SM that is used when dealing with attribute
+the getattr SM is called when one is trying to access an attribute of an object that does not exist,
+so it only called when the attribute you are trying to access does not exist,the attribute one is trying to access is passed
+to the getattr SM as string,when it is passed to the getatt SM ,we can then be able to tell python what to do ,for instance we may tell python
+to return a warning message about the inexistence of the attribute that's being accessed or even return another attribute from amongst our othe attributes that we
+may have defined within our 
+"""
+        print("Oh oh !!! the attribute you're trying to access does not exist")
+    
