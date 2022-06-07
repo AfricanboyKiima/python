@@ -54,3 +54,27 @@ def multiply(number,max):
         print(i,"*",number,"=",i*number)
         print(random.randint(10,1010))
 """
+foo = []
+while True:#an infinite loop to allow one to insert elements into container objects
+    item = input("Insert item : ")
+    if item == "":
+        print("Loop ended")
+        break
+    if item not in foo:
+        foo.append(item)
+    
+    
+"""
+test mycode with file openings
+
+while True:
+    content = input("Please insert your content : ")
+    if content == "":
+        print("Sorry you inserted nothing and can't have access to the system's database")
+        break
+    else:
+        with open("C:/test/test_/hello.txt","w") as my_file:
+            my_file.write(content)
+        continue
+
+"""
