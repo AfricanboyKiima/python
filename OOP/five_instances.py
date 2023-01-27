@@ -1,3 +1,4 @@
+import csv
 class Item:
     pay_rate = 0.8#this is a class attribute n can be accessed from both instance and class level
     all = []#this is also a class attribute
@@ -29,6 +30,15 @@ class Item:
 
     def apply_discount(self):
         self.price = self.price * self.pay_rate#best practice to access class attribute from instance level
+
+    @classmethod
+    def instantiate_from_csv(cls):
+        with open("OOP\items.csv","r") as f:
+            reader = csv.DictReader(f)
+            items = list(reader)
+
+            for item in items:
+                print(item)
     
     #The __repr__ dunder method is used to represent and display the object and helpful in debugging our code
     def __repr__(self):
