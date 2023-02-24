@@ -4,7 +4,7 @@ class Dog:# a class is a model a model being an informative representation of an
         self.name = name
         self.size = size
         self.color = color
-        
+        #the code that follows below is known as methods, these are actions that can be perfomed on an object instantiated from this class
     def get_breed(self):#accessor to access the value of our breed attribute for each instance or object 
         return self.breed
     
