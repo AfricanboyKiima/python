@@ -1,4 +1,4 @@
-import csv
+import csv #imported csv module to use its features(methods,classes,attributes)
 class Item:
     pay_rate = 0.8#this is a class attribute n can be accessed from both instance and class level
     all = []#this is also a class attribute
@@ -31,15 +31,22 @@ class Item:
     def apply_discount(self):
         self.price = self.price * self.pay_rate#best practice to access class attribute from instance level
 
-    @classmethod
-    def instantiate_from_csv(cls):
-        with open("OOP\items.csv","r") as f:
-            reader = csv.DictReader(f)
-            items = list(reader)
-
+    @classmethod #class methods can only be accessed from a class level
+    def instantiate_from_csv(cls):#this method is used to instantiate objects saved in a csv file
+        #a class method is only accessed at a class level
+        with open("OOP\items.csv","r") as f:#open csv file as f object
+            reader = csv.DictReader(f)#convert what is in csv file into a dictionnary
+            items = list(reader) #place the dictionnaries into a list where "items" contains the dictionnaries that were converted
+            #this simply means that items is a list that contains each and every dictionnary that was converted from the csv file
+            
             for item in items:
-                print(item)
-    
+                #instantiate objects now, this code is now the one in charge of instantiating objects
+                #call class to instantiate objects from it which are obtained from the items.csv file
+                Item(name = item.get("name"),price = float(item.get("price")),qty = int(item.get("qty")))
+
+        
+        
+    #mwdlbailvnorbwfk
     #The __repr__ dunder method is used to represent and display the object and helpful in debugging our code
     def __repr__(self):
         return f"Item({self.name},{self.price},{self.qty})"
@@ -53,4 +60,8 @@ item5 = Item("Keyboard",75, 5)
 
 #Remember to access the value or values of the class attribute, we do this either from instance or class level
 
-print(Item.all)#accessed values of class attribute from class level so the values will be printed out here
+print(Item.instantiate_from_csv())
+print(Item.all)
+
+
+
