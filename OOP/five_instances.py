@@ -31,6 +31,7 @@ class Item:
     def apply_discount(self):
         self.price = self.price * self.pay_rate#best practice to access class attribute from instance level
 
+    #class methods are used largely to instantiate objects from different data sources eg yaml,csv,json etc
     @classmethod #class methods can only be accessed from a class level
     def instantiate_from_csv(cls):#this method is used to instantiate objects saved in a csv file
         #a class method is only accessed at a class level
@@ -52,7 +53,7 @@ class Item:
         elif isinstance(num,int):
             return True
         else:
-            return False
+            return print('This is neither an integer nor a float')
 
         
         
@@ -70,9 +71,34 @@ item5 = Item("Keyboard",75, 5)
 
 #Remember to access the value or values of the class attribute, we do this either from instance or class level
 
+#INHERITANCE EXPLAINED
+class Phone(Item):
+    all = []
+    def __init__(self,name:str,price:float,qty=0):#constructor special method to create attributes of object
+
+        assert price >= 0, f"Price{price} is not greater than or equal to zero"
+        assert qty >= 0, f"Qty {qty} is not greater than or equal to zero"
+        #assign attributes to object
+        self.name = name
+        self.price = price
+        self.qty = qty
+        
+    
+    
+
+        #Actions to execute
+        """Since the constructor is called when creating instances, the code below will also be executed"""
+
+        #access the class attribute from class level
+        Phone.all.append(self)#this code is responsible for adding instances to a list each time one is 
+        #created
+    
 
 
-
+Phone1 = Phone('Sumsung',500,5)
+print(Phone1.calculate_total_price())
+#print(Item.instantiate_from_csv())
+#print(Item.all)
 
 
 
