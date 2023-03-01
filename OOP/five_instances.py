@@ -44,6 +44,16 @@ class Item:
                 #call class to instantiate objects from it which are obtained from the items.csv file
                 Item(name = item.get("name"),price = float(item.get("price")),qty = int(item.get("qty")))
 
+
+    @staticmethod#we make a method static if we want to implement a functionality in a class. Static methods are bound to classes
+    def is_integer(num):#we make a method static when we want some functionality in respect to a class
+        if isinstance(num,float):
+            return num.is_integer()#returns false if the variable is a float
+        elif isinstance(num,int):
+            return True
+        else:
+            return False
+
         
         
     #mwdlbailvnorbwfk
@@ -60,8 +70,9 @@ item5 = Item("Keyboard",75, 5)
 
 #Remember to access the value or values of the class attribute, we do this either from instance or class level
 
-print(Item.instantiate_from_csv())
-print(Item.all)
+
+
+
 
 
 
