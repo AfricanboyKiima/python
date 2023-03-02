@@ -72,16 +72,18 @@ item5 = Item("Keyboard",75, 5)
 #Remember to access the value or values of the class attribute, we do this either from instance or class level
 
 #INHERITANCE EXPLAINED
-class Phone(Item):
+class Phone(Item):#Here we go into detail on best practices on how to implement the super() to have acess to the attributes and methods of the parent class
     all = []
-    def __init__(self,name:str,price:float,qty=0):#constructor special method to create attributes of object
-
-        assert price >= 0, f"Price{price} is not greater than or equal to zero"
-        assert qty >= 0, f"Qty {qty} is not greater than or equal to zero"
+    def __init__(self,name:str,price:float,qty=0,broken_phones= 0):#constructor special method to create attributes of object$*
+        #The super() allows us to access the attributes and methods from the parent class in a child class
+        super().__init__( 
+            name, price, qty
+        )
+      
+        assert broken_phones >= 0, f"broken_phones {broken_phones} is not greater than or equal to zero"
         #assign attributes to object
-        self.name = name
-        self.price = price
-        self.qty = qty
+        
+        self.broken_phones = broken_phones
         
     
     
