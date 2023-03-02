@@ -73,7 +73,7 @@ class Item:
 
 #INHERITANCE EXPLAINED
 class Phone(Item):#Here we go into detail on best practices on how to implement the super() to have acess to the attributes and methods of the parent class
-    all = []
+   
     def __init__(self,name:str,price:float,qty=0,broken_phones= 0):#constructor special method to create attributes of object$*
         #The super() allows us to access the attributes and methods from the parent class in a child class
         super().__init__( 
@@ -91,11 +91,7 @@ class Phone(Item):#Here we go into detail on best practices on how to implement 
         #Actions to execute
         """Since the constructor is called when creating instances, the code below will also be executed"""
 
-        #access the class attribute from class level
-        Phone.all.append(self)#this code is responsible for adding instances to a list each time one is 
-        #created
-    
-
+        
 
 Phone1 = Phone('Sumsung',500,5)
 print(Phone1.calculate_total_price())
