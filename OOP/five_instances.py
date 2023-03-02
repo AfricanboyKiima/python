@@ -9,7 +9,7 @@ class Item:
     def __init__(self,name:str,price:float,qty=0):#constructor special method to create attributes of object
 
         assert price >= 0, f"Price{price} is not greater than or equal to zero"
-        assert qty >= 0, f"Qty {qty} is not greater than or equal to zero"
+        assert qty >= 0, f"Qty {qty} is not greater  than or equal to zero"
         #assign attributes to object
         self.name = name
         self.price = price
@@ -60,14 +60,14 @@ class Item:
     #mwdlbailvnorbwfk
     #The __repr__ dunder method is used to represent and display the object and helpful in debugging our code
     def __repr__(self):
-        return f"Item({self.name},{self.price},{self.qty})"
+        return f"{self.__class__.__name__}({self.name},{self.price},{self.qty})"
 
 #These are five instances each instance being appended to the 'all' items list when instantiated or at run time
-item1 = Item("Phone",100,1)#first instance
-item2 = Item("Laptop",1000,3)
-item3 = Item("Cable",10,5)
-item4 = Item("Mouse",50,5)
-item5 = Item("Keyboard",75, 5)
+#item1 = Item("Phone",100,1)#first instance
+#item2 = Item("Laptop",1000,3)
+#item3 = Item("Cable",10,5)
+#item4 = Item("Mouse",50,5)
+#item5 = Item("Keyboard",75, 5)
 
 #Remember to access the value or values of the class attribute, we do this either from instance or class level
 
@@ -100,7 +100,7 @@ class Phone(Item):#Here we go into detail on best practices on how to implement 
 Phone1 = Phone('Sumsung',500,5)
 print(Phone1.calculate_total_price())
 #print(Item.instantiate_from_csv())
-#print(Item.all)
+print(Item.all)
 
-
+print(Phone.all)
 
